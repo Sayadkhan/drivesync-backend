@@ -4,7 +4,7 @@ export type carServicesType = {
 
 title: string
 description: string
-category: string,
+category: string
 images: string[]
 price: number
 
