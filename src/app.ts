@@ -6,6 +6,10 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import authRouter from './routes/auth.route';
+import userRoute from './routes/user.route';
+import carServicesRoute from './routes/carService.route';
+import bookingRouter from './routes/booking.route';
 
 class App {
   private app: Application;
@@ -38,6 +42,11 @@ class App {
     this.app.get('/', (req: Request, res: Response) => {
       res.status(200).json({ message: 'Welcome to drivesync-server' });
     });
+
+    this.app.use('/api/auth', authRouter);
+    this.app.use('/api/user', userRoute);
+    this.app.use('/api/car_service', carServicesRoute);
+    this.app.use('/api/bookings', bookingRouter);
   }
   // databaseconnect
   private connectToDatabase(): void {
