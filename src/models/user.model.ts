@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, model } from 'mongoose';
 import { userType } from '../types/user.type';
 
 const userSchema = new Schema<userType>(
@@ -38,3 +38,7 @@ const userSchema = new Schema<userType>(
     timestamps: true,
   }
 );
+
+const UserModle = model<userType>('User', userSchema);
+
+export default UserModle;
